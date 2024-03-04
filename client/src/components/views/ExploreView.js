@@ -7,13 +7,13 @@ import PostBrowser from "../PostBrowser";
 const ExploreView = () => {
   return (
     <div className="navBox">
-      <Navbar />
-      {/* <div className="box">
+      {/* <Navbar /> */}
+      <div className="box">
       <GridLayout
         left={<PostBrowser createPost contentType="posts" className="postCard"/>}
         right={<Sidebar />}
       />
-      </div> */}
+      </div>
     </div>
   );
 };

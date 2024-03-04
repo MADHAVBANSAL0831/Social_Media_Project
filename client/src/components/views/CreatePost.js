@@ -9,7 +9,7 @@ import Footer from "../Footer";
 const CreatePostView = () => {
   return (
     <div className="navBox">
-      <Navbar />
+      {/* <Navbar /> */}
       <GoBack />
       <div className="box" >
       <GridLayout left={<PostEditor />} right={<Sidebar />} />
