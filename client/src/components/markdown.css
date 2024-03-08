@@ -1,0 +1,74 @@
+.markdown :first-child {
+    margin-top: 0;
+  }
+  
+  .markdown :last-child {
+    margin-bottom: 0;
+  }
+  
+  .markdown {
+    color: #383838;
+  }
+  
+  .username {
+    color: rgb(79, 79, 79);
+    font-size: large;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  
+  .LOGO {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+  .LOGO2 {
+    color: rgb(98, 98, 98);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  
+  .viewBtn {
+    background-color: rgb(68, 68, 68);
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    border-radius: 3px;
+    color: white;
+    text-decoration: none;
+  }
+  .backBtn {
+    background-color: rgb(44, 44, 44);
+    font-size: 1rem;
+    padding: 8px 8px;
+    border-radius: 3px;
+    color: white;
+    text-decoration: none;
+    margin-left: 40px;
+  }
+  
+  .navi {
+    background-color: rgb(32, 32, 32);
+    /* border-radius: 6px; */
+    /* margin: 10px 40px; */
+    padding: 1px 10px;
+    margin-bottom: 20px;
+  }
+  
+  .navBox {
+    background-color: rgb(242, 242, 242);
+    color: white;
+  }
+  
+  input[type="text"], textarea {
+  
+    background-color : #fafafa; 
+    border-radius: 4px;
+  
+  }
+  
+  .box {
+    display: flex;
+    padding: 40px;
+    flex-direction: row;
+    gap: 20px;
+  }
+  

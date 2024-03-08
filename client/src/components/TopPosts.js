@@ -48,7 +48,7 @@ const TopPosts = () => {
         {!loading ? (
             posts && 
             posts.map((post) => (
-                <PostCard post={post} key={post._id} />
+                <PostCard preview="secondary" post={post} key={post._id} />
             ))
         ) : (
             <Loading/>

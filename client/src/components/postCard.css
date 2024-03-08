@@ -1,0 +1,44 @@
+.post-card .primary .content {
+    -webkit-mask-image: linear-gradient(black 175px, transparent 250px);
+    mask-image: linear-gradient(black 175px, transparent 250px);
+  }
+  
+  .post-card .secondary .title {
+    -webkit-mask-image: linear-gradient(black 70px, transparent 125px);
+    mask-image: linear-gradient(black 70px, transparent 125px);
+    margin-top: 15px;
+  }
+  
+  .post-card {
+    color: aliceblue;
+    border: none;
+  }
+  
+  .cards {
+    background-color: rgba(255, 255, 255, 0.641);
+    /* border-radius: 10px; */
+  }
+  
+  html {
+    overflow-y: scroll;
+  }
+  
+  .bg {
+    background-color: aqua;
+  }
+  
+  .bottom {
+    margin-bottom: 25px;
+  }
+  
+  .title {
+    color: rgb(50, 50, 50);
+  }
+  
+  .post-card {
+    background-color: aqua;
+  }
+  
+  
+  
+  

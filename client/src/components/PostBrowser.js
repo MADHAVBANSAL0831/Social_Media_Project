@@ -10,6 +10,7 @@ import Loading from "./Loading";
 import PostCard from "./PostCard";
 import SortBySelect from "./SortBySelect";
 import HorizontalStack from "./util/HorizontalStack";
+import "./postCard.css";
 
 const PostBrowser = (props) => {
   const [posts, setPosts] = useState([]);

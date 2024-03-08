@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { getUser, updateUser } from "../../api/users";
 import { isLoggedIn } from "../../helpers/authHelper";
-// import CommentBrowser from "../CommentBrowser";
+import CommentBrowser from "../CommentBrowser";
 
-// import ErrorAlert from "../ErrorAlert";
+import ErrorAlert from "../ErrorAlert";
 import FindUsers from "../FindUsers";
 import Footer from "../Footer";
 import GoBack from "../GoBack";
@@ -89,7 +89,7 @@ const ProfileView = () => {
           key="liked"
         />
       ),
-    //   comments: <CommentBrowser profileUser={profile.user} />,
+      comments: <CommentBrowser profileUser={profile.user} />,
     };
   }
 
@@ -119,7 +119,7 @@ const ProfileView = () => {
               ) : (
                 <Loading />
               )}
-              {/* {error && <ErrorAlert error={error} />} */}
+              {error && <ErrorAlert error={error} />}
             </Stack>
           </>
         }
