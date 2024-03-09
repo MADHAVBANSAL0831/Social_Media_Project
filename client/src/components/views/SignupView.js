@@ -10,11 +10,12 @@ import {
   import { Box } from "@mui/system";
   import React, { useState } from "react";
   import { signup } from "../../api/users";
-//   import { loginUser } from "../../helpers/authHelper";
+  import { loginUser } from "../../helpers/authHelper";
   import { useNavigate } from "react-router-dom";
   import Copyright from "../Copyright";
-//   import { isLength, isEmail, contains } from "validator";
   import sentMail from "../../helpers/sentMail";
+  import sentOtp from "../../helpers/sentOtp";
+  import toast from 'react-hot-toast';
 
 const SignupView = () => {
 
@@ -23,11 +24,25 @@ const [serverError, setServerError] = useState("");
 const [errors, setErrors] = useState({});
 
 const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    otp: "",
+  username: "",
+  email: "",
+  password: "",
+  otp: "",
 });
+
+const [Otp, setOtp] = useState("");
+
+function generateOTP(length) {
+  const digits = '0123456789';
+  let OTP = '';
+
+  for (let i = 0; i < length; i++) {
+      const index = Math.floor(Math.random() * digits.length);
+      OTP += digits[index];
+  }
+
+  return OTP;
+}
 
 const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -36,18 +51,40 @@ const handleChange = (e) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // const errors = validate();
     if (Object.keys(errors).length !== 0) return;
 
-    const data = await signup(formData);
+    console.log(Otp, " , ", formData.otp);
+    if(Otp===formData.otp)
+    {
+      const data = await signup(formData);
 
-    if (data.error) {
-      setServerError(data.error);
-    } else {
-    //   loginUser(data);
-      navigate("/");
-      sentMail(formData.email, formData.username);
+      if (data.error) {
+        setServerError(data.error);
+        toast.error(data.error);
+      } else {
+        loginUser(data);
+        navigate("/");
+        toast.success("Sign in scuccesfully");
+        // navigate(`/otp?otp=${otp}`);
+        // sentOtp(formData.email, otp);
+      }
     }
+
+  };
+
+  const handleOtp = async () => {
+
+    const otp = generateOTP(6);
+    setOtp(otp);
+    sentOtp(formData.email, otp);
+    toast.success("OTP Sent Succesfully");
+    console.log(otp);
+    // if(val.error)
+    // {
+    //   toast.error(val);
+    // }
+    // else
+    // toast.success('Email Sent Succesfully');
   };
 
 
@@ -119,6 +156,9 @@ const handleChange = (e) => {
             error={errors.otp !== undefined}
             helperText={errors.otp}
           />
+          <Button onClick={handleOtp}>
+            Send OTP
+          </Button>
           <Button type="submit" fullWidth variant="contained" sx={{ my: 2 }}>
             Sign Up
           </Button>

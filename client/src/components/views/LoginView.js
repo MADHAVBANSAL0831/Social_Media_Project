@@ -12,8 +12,8 @@ import {
   import React, { useState } from "react";
   import { Link, useNavigate } from "react-router-dom";
   import { login } from "../../api/users";
-//   import ErrorAlert from "../ErrorAlert";
-//   import { loginUser } from "../../helpers/authHelper";
+  import ErrorAlert from "../ErrorAlert";
+  import { loginUser } from "../../helpers/authHelper";
   import Copyright from "../Copyright";
 
 const LoginView = () => {
@@ -38,7 +38,7 @@ const LoginView = () => {
       if (data.error) {
         setServerError(data.error);
       } else {
-        // loginUser(data);
+        loginUser(data);
         navigate("/");
         // const {email, password} = formData;
         // sentMail(formData.email);
@@ -85,7 +85,7 @@ const LoginView = () => {
             type="password"
           />
 
-          {/* <ErrorAlert error={serverError} /> */}
+          <ErrorAlert error={serverError} />
           <Button type="submit" fullWidth variant="contained" sx={{ my: 2 }}>
             Login
           </Button>

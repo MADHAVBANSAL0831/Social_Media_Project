@@ -36,6 +36,7 @@ import {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const user = isLoggedIn();
+    console.log(postData);
     const isAuthor = user && user.username === postData.poster.username;
   
     const theme = useTheme();
